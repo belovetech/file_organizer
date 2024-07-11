@@ -19,8 +19,9 @@ To use the File Organizer, pass the path of the directory you want to organize a
 
 ## Optional Flags
 
---verbose: Enables verbose output to show detailed information about the organization process.
---dry-run: Performs a dry run without actually moving any files. Useful for seeing what changes will be made.
+`--verbose`: Enables verbose output to show detailed information about the organization process.
+
+`--dry-run`: Performs a dry run without actually moving any files. Useful for seeing what changes will be made.
 
 ### Examples
 
