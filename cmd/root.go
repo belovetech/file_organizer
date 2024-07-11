@@ -10,7 +10,7 @@ import (
 
 func FlagParser() (*string, *bool, *bool) {
 	logger := utils.Log()
-	logger.Info("Parsing flags")
+	logger.Info("Parsing program flags")
 
 	directory := flag.String("dir", ".", "Directory to organize")
 	dryRun := flag.Bool("dry-run", false, "Dry run")
@@ -24,6 +24,5 @@ func FlagParser() (*string, *bool, *bool) {
 	}
 
 	logger.Info("Directory exists", slog.String("directory", *directory))
-
 	return directory, dryRun, verbose
 }

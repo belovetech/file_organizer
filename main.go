@@ -1,7 +1,9 @@
 package main
 
 import (
+	"log/slog"
 	"os"
+	"time"
 
 	"github.com/belovetech/file-organizer/cmd"
 	"github.com/belovetech/file-organizer/organizer"
@@ -11,7 +13,7 @@ import (
 func main() {
 	logger := utils.Log()
 
-	logger.Info("Starting organize")
+	start := time.Now()
 
 	args := os.Args[1:]
 
@@ -22,6 +24,14 @@ func main() {
 	}
 
 	directory, dryRun, verbose := cmd.FlagParser()
-	organizer.Organize(*directory, *dryRun, *verbose)
+	err := organizer.Organize(*directory, *dryRun, *verbose)
+
+	if err != nil {
+		logger.Error("Error organizing directory", slog.Any("error", err))
+		os.Exit(1)
+	}
+
+	duration := time.Since(start)
+	logger.Info("Organize completed", slog.String("duration", duration.String()))
 
 }
