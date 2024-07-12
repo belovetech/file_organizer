@@ -57,7 +57,7 @@ func getExt(file fs.DirEntry) string {
 		fileExt = "no_extension"
 	} else {
 		logger.Info("Found file", slog.String("file", file.Name()))
-		fileExt = fileExt[1:]
+		fileExt = fileExt[1:] // remove dot from the extension
 	}
 	return fileExt
 }
