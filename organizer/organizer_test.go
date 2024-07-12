@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-func TestOrganizer(t *testing.T) {
+func TestOrganize(t *testing.T) {
 	testDir := "./testdir"
 
 	// Clean up test directory before starting the test
@@ -33,7 +33,7 @@ func TestOrganizer(t *testing.T) {
 		dir := filepath.Join(testDir, file)
 		createEmptyFile(dir)
 	}
-	
+
 	if err := Organize(testDir, false, false); err != nil {
 		t.Fatalf("Organize file failed %v", err)
 	}
